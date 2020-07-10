@@ -9,35 +9,26 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/main.css">
   <title>Flickr Grid</title>
 </head>
 
 <body>
   <div class="container">
     <h1 class="mt-4 mb-4">Flickr Grid</h1>
-    <form class="form-inline">
+    <form id="tagsForm" class="form-inline">
       <label class="sr-only" for="searchTags">Search Tags</label>
       <input type="text" class="form-control mb-3 mt-3 mr-2" id="searchTags" placeholder="Enter search tags">
 
-      <button id="loadDataButton" type="button" class="btn btn-primary mb-3 mt-3">See Photos</button>
+      <button id="changeTagsButton" type="submit" class="btn btn-primary mb-3 mt-3">See Photos</button>
     </form>
     <div class="row">
       <div class="col-md-12">
-        <p id="introText">Photos will show here when you've done a search.</p>
-        <div id="photoRows" class="row d-none">
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
-          <div class="col-md-4">photo here</div>
+        <h5 id="introText" class="mb-3">Showing photos for 'Flowers' tag as preview. Do your own search!.
+          you can use multiple tags separated by commas.
+        </h5>
+        <div id="photoRows" class="row">
+          <!-- load photos here -->
         </div>
       </div>
     </div>

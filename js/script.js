@@ -1,3 +1,4 @@
+
 const loadData = (page=1, searchTags='flowers') => {
   let photoRows = $('#photoRows');
   photoRows.empty();
@@ -9,20 +10,20 @@ const loadData = (page=1, searchTags='flowers') => {
       // console.log('Got data');
       // console.log(data.photos.photo);
       images = data.photos.photo;
-      images.forEach(image => {
+      images.forEach( image => {
         let { farm, server, id, secret, owner } = image;
         imgURL = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_w.jpg`;
+        // handle cases where image won't load even with good api data, 
+        // in this case there will be less than 24 photos but it looks better than an image that isn't loading.
+        if (farm === 0) return;
         // console.log('imgURL', imgURL);
         imgTitle = image.title.length > 17 ? (image.title.substr(0, 17) + "...") : image.title;
-        imgLink = `https://www.flickr.com/photos/placeholder`; // TODO get image links
         imgCardHTML = `
         <div class="col-md-4">
           <div class="card mb-4 text-white bg-dark">
             <img class="card-img-top card-preview-img" src="${imgURL}" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">${imgTitle}</p>
-               
-                <a href="${imgLink}" class="btn btn-outline-light btn-sm">Image Page</a>
             </div>
           </div>
         </div> `; // End image card html

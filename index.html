@@ -13,22 +13,29 @@
   <title>Flickr Grid</title>
 </head>
 
-<body>
+<body class="bg-dark text-white">
   <div class="container">
     <h1 class="mt-4 mb-4">Flickr Grid</h1>
     <form id="tagsForm" class="form-inline">
       <label class="sr-only" for="searchTags">Search Tags</label>
       <input type="text" class="form-control mb-3 mt-3 mr-2" id="searchTags" placeholder="Enter search tags">
 
-      <button id="changeTagsButton" type="submit" class="btn btn-primary mb-3 mt-3">See Photos</button>
+      <button id="changeTagsButton" type="submit" class="btn btn-info mb-3 mt-3">See Photos</button>
     </form>
     <div class="row">
       <div class="col-md-12">
-        <h5 id="introText" class="mb-3">Showing photos for 'Flowers' tag as preview. Do your own search!.
+        <h5 id="introText" class="mb-4 mt-2">Showing photos for 'Flowers' tag as preview. Do your own search!.
           you can use multiple tags separated by commas.
         </h5>
         <div id="photoRows" class="row">
           <!-- load photos here -->
+        </div>
+        <div class="row mb-5">
+          <div class="col"></div>
+          <div class="col-md-3"><button id="previousPageButton" type="button" class="btn btn-info float-right">Previous Page</button></div>
+          <div class="col"><h4 id="pageNumber" class="text-center">Page 1</h4></div>
+          <div class="col-md-3"><button id="nextPageButton" type="button" class="btn btn-info">Next Page</button></div>
+          <div class="col"></div>
         </div>
       </div>
     </div>

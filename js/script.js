@@ -1,4 +1,7 @@
-
+// API handling portion. 
+//Should probably be broken down a bit more, refactoring parts out into their own functions.
+// Could refactor out a buildImageCard function to get card HTML, 
+// Unfortunately, jquery ajax calls are kind of ugly and this could be simpler with fetch. 
 const loadData = (page = 1, searchTags = 'flowers') => {
   if (page === 1) {
     $('#previousPageButton').prop("disabled", true);
@@ -38,6 +41,8 @@ const loadData = (page = 1, searchTags = 'flowers') => {
   });
 };
 
+// Helper to parse the tags entered into the form. Allows multiple tags separated by commas.
+// Trims and joins entered tags for use in API calls
 const parseTags = () => {
   currentTags = $('#searchTags').val() || 'flowers';
   let tagsParam = '';
@@ -60,9 +65,12 @@ const parseTags = () => {
   }
   return tagsParam;
 };
+
+// Globals
 let currentTags;
 let currentPage = 1;
 
+// User changed the tags in the search, load new data
 const changeTags = () => {
   // Handle multiple tags for search
   $('#introText').hide();
@@ -72,10 +80,13 @@ const changeTags = () => {
   loadData(page = 1, searchTags = tagsParam);
 };
 
+// helper function to update the page number on the bottom of the grid
 const updatePageDisplay = () => {
   $('#pageNumber').text(`Page ${currentPage}`);
 };
 
+
+// Handle app events such as hitting enter in tags form, clicking submit button for tag search, next / previous pages
 $('#tagsForm').submit((event) => {
   event.preventDefault();
   currentPage = 1;
@@ -100,4 +111,5 @@ $('#previousPageButton').click(function () {
   }
 });
 
+// Load 'flowers' search on first visit.
 loadData();

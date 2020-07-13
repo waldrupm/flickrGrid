@@ -12,7 +12,7 @@ const loadData = (page = 1, searchTags = 'flowers') => {
   photoRows.empty();
   let tagsParam = searchTags;
   let pageParam = page === 1 ? '' : `&page=${page}`;
-  apiURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=20e5bc680a66df4de1440248313a6a41&tags=${tagsParam}&format=json&safe_search=1&nojsoncallback=1&per_page=24${pageParam}`;
+  apiURL = `https://www.flickr.com/services/rest/?method=flickr.photos.search1&api_key=20e5bc680a66df4de1440248313a6a41&tags=${tagsParam}&format=json&safe_search=1&nojsoncallback=1&per_page=24${pageParam}`;
   // console.log('apiURL', apiURL)
   $.getJSON(apiURL, (data) => {
     // console.log('Got data');
@@ -84,7 +84,6 @@ const changeTags = () => {
 const updatePageDisplay = () => {
   $('#pageNumber').text(`Page ${currentPage}`);
 };
-
 
 // Handle app events such as hitting enter in tags form, clicking submit button for tag search, next / previous pages
 $('#tagsForm').submit((event) => {
